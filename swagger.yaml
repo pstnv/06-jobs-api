@@ -22,12 +22,12 @@ paths:
                             allOf:
                                 - $ref: "#/components/schemas/RegisterUserRequest"
                                 - example:
-                                      name: peter
-                                      email: peter@gmail.com
+                                      name: bob
+                                      email: bob@gmail.com
                                       password: secret
                         example:
-                            name: peter
-                            email: peter@gmail.com
+                            name: bob
+                            email: bob@gmail.com
                             password: secret
                 required: true
             responses:
@@ -51,10 +51,10 @@ paths:
                             allOf:
                                 - $ref: "#/components/schemas/LoginUserRequest"
                                 - example:
-                                      email: john0@gmail.com
+                                      email: bob@gmail.com
                                       password: secret
                         example:
-                            email: john0@gmail.com
+                            email: bob@gmail.com
                             password: secret
                 required: true
             responses:
@@ -78,11 +78,11 @@ paths:
                             allOf:
                                 - $ref: "#/components/schemas/CreateJobRequest"
                                 - example:
-                                      company: netflix
-                                      position: back-end developer
+                                      company: google
+                                      position: front-end developer
                         example:
-                            company: netflix
-                            position: back-end developer
+                            company: google
+                            position: front-end developer
                 required: true
             responses:
                 "200":
@@ -139,11 +139,11 @@ paths:
                             allOf:
                                 - $ref: "#/components/schemas/UpdateJobRequest"
                                 - example:
-                                      company: random
-                                      position: intern
+                                      company: netflix
+                                      position: back-end developer
                         example:
-                            company: random
-                            position: intern
+                            company: netflix
+                            position: back-end developer
                 required: true
             responses:
                 "200":
@@ -182,8 +182,8 @@ components:
                 password:
                     type: string
             example:
-                name: peter
-                email: peter@gmail.com
+                name: bob
+                email: bob@gmail.com
                 password: secret
         LoginUserRequest:
             title: LoginUserRequest
@@ -197,7 +197,7 @@ components:
                 password:
                     type: string
             example:
-                email: john0@gmail.com
+                email: bob@gmail.com
                 password: secret
         CreateJobRequest:
             title: CreateJobRequest

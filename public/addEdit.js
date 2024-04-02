@@ -117,3 +117,32 @@ export const showAddEdit = async (jobId) => {
         enableInput(true);
     }
 };
+
+export const deleteJob = async (jobId) => {
+    if (!jobId) {
+        return;
+    }
+    enableInput(false);
+    
+    try {
+        const response = await fetch(`/api/v1/jobs/${jobId}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        if (response.status === 200) {
+            message.textContent = "The job entry was deleted.";
+        } else {
+            // might happen if the list has been updated since last display
+            message.textContent = "The jobs entry was not found";
+        }
+    } catch (err) {
+        console.log(err);
+        message.textContent = "A communications error has occurred.";
+    } finally {
+        showJobs();
+        enableInput(true);
+    }
+};
